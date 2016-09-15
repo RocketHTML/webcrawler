@@ -1,0 +1,68 @@
+/// static Finder
+	/// static String find(String page, regex)  /// returns the lines holding the regex
+	/// static String find(String page, regex1, regex2)  /// returns a fragment, within the line holding regex1
+
+
+/// URLCrawler
+	/// void setCurrent(String url)
+	/// String[] findChildURLs(String domain) - returns list of children URLs found on a URL page 
+		////   <a href="/fantasy-paranormal/black-moon-draw/armies-clash">
+	/// String getPage(String url) - returns the HTML page of specified HTTP URL 
+
+
+/// RomanceCrawler		/// Has a URLCrawler set to www.publicbookshelf.com/index.html 
+	/// String[] getAllCatagories()
+	/// String[] getBookNames(String catagory)  /// get all book names on page  (use Finder to locate lines & book titles)
+														/// setCurrent to next page. Get all book names & URLs on that page
+															/// puts url to the right of name in StringArray
+															/// if there are no booknames, stop appending book names. 
+																/// use .toArray()
+    /// String[] getBookNames() /// uses getBookNames(String) on all catagories 
+
+	/// void initBookNames(boolean rocket)	/// romancerocket = rocket 
+									/// if (rocket) romancerocket = romance.rocket exists
+									/// if (roomancerocket), crop names and urls from romance.rocket
+										/// then save to class fields. 
+									/// else, save getBookNames() to class fields 
+											then save to romance.rocket 
+									
+	/// void update() /// uses initBookNames(false);
+
+	/// boolean findBook(String bookname)  /// searches booknames class field 
+											/// calls initBookNames(false) if empty 
+
+	////// RomanceBook getBook(String catagory/bookname/)  /// Plz only use if book exists....
+
+
+/// Book - interface
+	/// String nextPage()
+	///	String previousPage()
+
+
+/// RomanceBook - implements Book
+	//// final String domain www.publicbookshelf.com/
+	/// String root  /// catagory/bookname/
+	/// String currentPage
+	/// String currentChapter 
+	/// String title 
+	/// String author
+
+	/// public RomanceBook(String rootURL)
+		/// root = rootURL
+
+	/// String nextPage()
+		/// if current == root, then look for begin reading URL and return page
+		/// else, look for nextPage url and return page 
+	/// String prevPage()
+		/// if current == root, return null
+		/// else, look for prevPage url and if not found return null, otherwise return page 
+	/// String goToChapter(String chapter)
+	/// String goToPage(int page)
+	/// String goToPage(String chapter, int page) /// generates url using 
+
+
+
+
+
+
+
